@@ -14,8 +14,8 @@ var keystone = require('keystone'),
 
 keystone.init({
 
-	'name': 'mmdc',
-	'brand': 'mmdc',
+	'name': 'MMDC',
+	'brand': 'MMDC',
 
 	'less': 'public',
 	'static': 'public',
@@ -35,7 +35,7 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'cookie secret': '/y{737mDMbHrI"uX`RTsi@kf"ZK*e-vZn%Iy?-xFD~s.6WH/:aA=q9}bM%J{M{kh'
+	'cookie secret': '>}?.l"Wb)%^s_|&e%JsGldxNJqQ?6<PCO]t(qn+VEWukw/O8<`bhkFv)#pfEt-AE'
 
 });
 
