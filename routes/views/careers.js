@@ -7,7 +7,7 @@ exports = module.exports = function(req, res) {
 	
 	// Set locals
 	locals.section = 'careers';
-	
+  locals.pageTitle = 'Careers';	
 	
 	// Render the view
 	view.render('careers');
