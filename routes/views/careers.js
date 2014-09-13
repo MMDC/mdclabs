@@ -6,12 +6,10 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 	
 	// Set locals
-	locals.section = 'gallery';
+	locals.section = 'careers';
 	
-	// Load the galleries by sortOrder
-	view.query('galleries', keystone.list('Gallery').model.find().sort('sortOrder'));
 	
 	// Render the view
-	view.render('gallery');
+	view.render('careers');
 	
 };
