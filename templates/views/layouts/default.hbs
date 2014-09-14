@@ -21,6 +21,7 @@
 
 	</head>
 	<body>
+        <img src="/images/metroland-logo.png" style="position: fixed; top: 20px; right: 40px; z-index:10001"/>
      <div id="wrapper">
        <div id="sidebar-wrapper">
           <ul class="sidebar-nav">
@@ -34,29 +35,21 @@
             {{/each}}
           </ul>
       </div>
-    <div id="page-content-wrapper" class="container-fluid">
-      <div id="header">
-        <div class="container">
-          <div role="navigation" class="navbar navbar-default">
-            <div class="navbar-header">
-              <button class="sidebar-toggle" type="button" id="menu-toggle" href="#menu-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-              </button>
-            </div>
-            <div class="collapse navbar-collapse">
-              <ul class="nav navbar-nav navbar-right">
-                {{#if user}}
-                <li><a href="/keystone/signout">Sign Out</a></li>
-                {{else}}
-                <li><a href="/keystone/signin">Sign In</a></li>
-                {{/if}}
-              </ul>
-            </div>
+    <div id="page-content-wrapper">
+      <div id="paper-header">
+        <div class="container-fluid">
+          <div class="row">
+            <button class="sidebar-toggle" type="button" id="menu-toggle" href="#menu-toggle">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="row" style="position:absolute; bottom:20px; left: 80px;">
+            <h1>{{pageTitle}}</h1>
           </div>
         </div>
       </div>
-      <div id="body">
+      <div id="body" style="margin-top:198px">
         <!--
           Flash messages allow you to display once-off status messages to users, e.g. form
           validation errors, success messages, etc
@@ -88,8 +81,8 @@
         <!-- The content block should contain the body of your template's content-->
         {{{body}}}
       </div>
-      <div class="container">
-        <div id="footer">
+      <div id="footer">
+        <div class="container-fluid">
           <p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
         </div>
       </div>
@@ -108,6 +101,15 @@
 		<script src="/js/lib/bootstrap/bootstrap-3.2.0.min.js"></script>
 		<!-- Menu Toggle Script -->
     <script>
+      var el = document.getElementById("body");
+      var viewportOffset;
+      $(document).ready(function(){
+        $('#paper-header').css('height', viewportOffset.top-40 > 100 ? viewportOffset.top-40 : 100);
+      });
+      $(document).on("scroll", function(){
+        viewportOffset = el.getBoundingClientRect();
+        $('#paper-header').css('height', viewportOffset.top-40 > 100 ? viewportOffset.top-40 : 100);
+      });
       $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");

@@ -8,7 +8,8 @@ exports = module.exports = function(req, res) {
 	
 	// Set locals
 	locals.section = 'contact';
-	locals.enquiryTypes = Enquiry.fields.enquiryType.ops;
+	locals.pageTitle = 'Contact Us';
+  locals.enquiryTypes = Enquiry.fields.enquiryType.ops;
 	locals.formData = req.body || {};
 	locals.validationErrors = {};
 	locals.enquirySubmitted = false;

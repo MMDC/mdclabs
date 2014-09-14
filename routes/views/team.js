@@ -8,6 +8,7 @@ exports = module.exports = function(req, res) {
 
   // Set locals
   locals.section = 'team';
+  locals.pageTitle = 'Our Team';
   locals.filters = {
     firstName: req.params.firstName
   };
