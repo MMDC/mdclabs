@@ -1,5 +1,10 @@
-.team-photos {
+.photo-grid .team-photos {
   list-style: none;
+}
+
+.photo-grid ul {
+  padding: 0;
+  margin: 0;
 }
 
 .photo-grid ul li {
@@ -8,7 +13,16 @@
   padding: 0;
 }
 
-.person {
-  height: 180px;
+.photo-grid .person {
+  background-size: 200% 100%;
+  background-position: 0 0;
+  display: inline-block;
+  height: 150px;
   width: 150px;
+  padding: 0;
+  margin: 0;
+}
+
+.photo-grid .person:hover {
+  background-position: 150px 0;
 }
