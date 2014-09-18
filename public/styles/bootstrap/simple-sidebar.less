@@ -40,7 +40,7 @@
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #000;
+    background: #FFF;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -51,9 +51,9 @@
 }
 #page-content-wrapper {
     width: 100%;
-    padding: 15px;
+    padding: 15px 20px 0;
     @media(min-width:768px){
-      padding: 20px;
+      padding: 20px 20px 0 20px;
     }
 }
 #paper-header {
@@ -63,7 +63,7 @@
   background-color:#4caf50;
   margin-left:-20px;
   margin-top:-20px;
-  z-index:10000;
+  z-index:998;
   padding-right: 250px;
   h1 {
     color: #FFFFFF;
@@ -88,10 +88,19 @@
         a:hover {
             text-decoration: none;
             color: #fff;
-            background: rgba(255,255,255,0.2);
+            background-color: #4CAF50;
+        }
+        &.active a {
+          color: #4CAF50;
+          font-weight: bold;
+          &:hover {
+            color: #FFF;
+          }
         }
     }
+
     & > .sidebar-brand {
+        background-color: #4CAF50;
         height: 65px;
         font-size: 18px;
         line-height: 60px;
@@ -116,7 +125,7 @@
   display: block;
   margin-bottom: 4px;
   margin-right: 15px;
-  margin-top: 8px;
+  margin-top: 12px;
   padding: 9px 20px;
   position: relative;
   float:left;
@@ -128,4 +137,24 @@
     width: 22px;
     background-color: #515151;
   }
+}
+
+#page-title-header {
+  position: absolute;
+  bottom: 20px;
+  left: 80px;
+  &.mini {
+    bottom: 0;
+    top: -5px;
+  }
+}
+
+h1.mini {
+  font-size: 24px;
+}
+
+@media (max-width:600px){
+  body > img {display:none}
+  h1 {font-size: 24px}
+
 }
