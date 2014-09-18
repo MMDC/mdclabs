@@ -102,6 +102,7 @@
 		<script src="/js/lib/bootstrap/bootstrap-3.2.0.min.js"></script>
 		<!-- Menu Toggle Script -->
     <script>
+    (function(){
       var el = document.getElementById("body");
       var viewportOffset;
       $(document).ready(function(){
@@ -140,6 +141,22 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
       });
+
+      $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html,body').animate({
+                scrollTop: target.offset().top - 50
+              }, 1000);
+              return false;
+            }
+          }
+        });
+      });
+    })();
     </script>
     {{{isAdminEditorJS user}}}
 	</body>
