@@ -21,12 +21,12 @@
 
 	</head>
 	<body>
-        <img src="/images/metroland-logo.png" style="position: fixed; top: 20px; right: 40px; z-index:10001"/>
+     <img src="/images/metroland-logo.png" style="position: fixed; top: 10px; right: 40px; z-index:10001"/>
      <div id="wrapper">
        <div id="sidebar-wrapper">
           <ul class="sidebar-nav">
             <li class="sidebar-brand">
-              <a href="#">mmdc</a>
+              <a href="/"><img src="/images/metroland-logo.png" /></a>
             </li>
             {{# each navLinks}}
             <li {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>
@@ -44,7 +44,7 @@
               <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
             </button>
           </div>
-          <div class="row" style="position:absolute; bottom:20px; left: 80px;">
+          <div id="page-title-header" class="row">
             <h1>{{pageTitle}}</h1>
           </div>
         </div>
@@ -82,9 +82,8 @@
         {{{body}}}
       </div>
       <div id="footer">
-        <div class="container-fluid">
-          <p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
-        </div>
+        <a id="prev"><div class="prev">Previous:<br /><span id="prev-page"><span class="glyphicon glyphicon-arrow-left"></span></span></div></a>
+        <a id="next"><div class="text-right next">Next: <br /><span id="next-page"><span class="glyphicon glyphicon-arrow-right"></span></span></div></a>
       </div>
     </div>
   </div>
@@ -104,12 +103,37 @@
       var el = document.getElementById("body");
       var viewportOffset;
       $(document).ready(function(){
-        $('#paper-header').css('height', viewportOffset.top-40 > 100 ? viewportOffset.top-40 : 100);
+        $(document).scroll();
+
+        $('#prev').attr('href', function(){
+          var temp = $('.sidebar-nav').find('.active').prev().not('.sidebar-brand').find('a').attr('href') || null;
+          if (temp == null) { $(this).css('color', '#4CAF50');}
+          return temp;
+        });
+        $('#next').attr('href', function(){
+          var temp = $('.sidebar-nav').find('.active').next().find('a').attr('href') || null;
+          if (temp == null) { $(this).css('color', '#449D4D');}
+          return temp;
+        });
+
+        $('#prev-page').append($('.sidebar-nav').find('.active').prev().find('a').text());
+        $('#next-page').prepend($('.sidebar-nav').find('.active').next().find('a').text());
+
       });
+
       $(document).on("scroll", function(){
         viewportOffset = el.getBoundingClientRect();
-        $('#paper-header').css('height', viewportOffset.top-40 > 100 ? viewportOffset.top-40 : 100);
+        $('#paper-header').css('height', viewportOffset.top-40 > 60 ? viewportOffset.top-40 : 60);
+
+        if($('#paper-header').css('height').replace(/\D/g,'') <= 73){
+          $('#page-title-header h1').addClass('mini');
+        } else $('#page-title-header h1').removeClass('mini');
+
+        if($('#paper-header').css('height') === '60px'){
+          $('#page-title-header').addClass('mini');
+        } else $('#page-title-header').removeClass('mini');
       });
+
       $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
