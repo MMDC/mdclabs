@@ -2,8 +2,10 @@
   <ul class="team-photos">
   {{# each data.members }}
     <li id="{{key}}" class="person">
-      <img src="images/sample_image_off.png" class="person no-hover"/>
-      <img src="images/sample_image_on.png" class="person hover hide"/>
+      <img src="{{images.0.url}}" class="person no-hover"/>
+      {{# if images.1.url}}
+      <img src="{{images.1.url}}" class="person hover hide"/>
+      {{/if}}
     </li>
   {{/each}}
   </ul>
