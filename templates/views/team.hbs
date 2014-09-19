@@ -2,11 +2,15 @@
   <ul class="team-photos">
   {{# each data.members }}
     <li class="person">
+      {{#if images.0.url}}
       <img src="{{images.0.url}}" class="person no-hover"/>
       {{# if images.1.url}}
       <img src="{{images.1.url}}" class="person hover hide"/>
       {{/if}}
-      <div class="name">{{firstName}} {{lastName}}</div>
+      {{else}}
+      <img src="/images/moose.png" class="person"/>
+      {{/if}}
+      <!--div class="name">{{firstName}} {{lastName}}</div-->
     </li>
   {{/each}}
   </ul>
