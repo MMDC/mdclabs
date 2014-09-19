@@ -126,7 +126,7 @@
         viewportOffset = el.getBoundingClientRect();
         $('#paper-header').css('height', viewportOffset.top-40 > 60 ? viewportOffset.top-40 : 60);
 
-        if($('#paper-header').css('height').replace(/\D/g,'') <= 73){
+        if($('#paper-header').css('height').replace(/\D/g,'') <= 93){
           $('#page-title-header h1').addClass('mini');
         } else $('#page-title-header h1').removeClass('mini');
 
@@ -142,13 +142,13 @@
 
       $('.team-photos').on({
         'mouseenter': function(){
-          if($(this).children().length === 2){
+          if($(this).find('img').length === 2){
             $(this).find('.no-hover').toggleClass('hide');
             $(this).find('.hover').toggleClass('hide');
           }
         },
         'mouseleave': function(){
-          if($(this).children().length === 2){
+          if($(this).find('img').length === 2){
             $(this).find('.no-hover').toggleClass('hide');
             $(this).find('.hover').toggleClass('hide');
           }
