@@ -2,11 +2,8 @@
   <ul class="team-photos">
   {{# each data.members }}
     <li id="{{key}}" class="person">
-      {{#if images.0.url}}
-      <div class="person" style="background-image: url('{{images.0.url}}')" />
-      {{ else }}
-      <img src="http://kloofvillagedental.co.za/wp-content/uploads/2011/11/blank-profile-hi-300x300.png" class="person"/>
-      {{/if}}
+      <img src="images/sample_image_off.png" class="person no-hover"/>
+      <img src="images/sample_image_on.png" class="person hover hide"/>
     </li>
   {{/each}}
   </ul>

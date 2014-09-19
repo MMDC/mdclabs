@@ -19,7 +19,6 @@
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" />
 		<![endif]-->
 
-		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500' rel='stylesheet' type='text/css'>
 
 	</head>
 	<body>
@@ -140,6 +139,21 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
       });
+
+      $('.team-photos').on({
+        'mouseenter': function(){
+          if($(this).children().length === 2){
+            $(this).find('.no-hover').toggleClass('hide');
+            $(this).find('.hover').toggleClass('hide');
+          }
+        },
+        'mouseleave': function(){
+          if($(this).children().length === 2){
+            $(this).find('.no-hover').toggleClass('hide');
+            $(this).find('.hover').toggleClass('hide');
+          }
+        }
+      }, 'li.person');
 
       $(function() {
         $('a[href*=#]:not([href=#])').click(function() {

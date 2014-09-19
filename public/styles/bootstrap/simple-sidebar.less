@@ -145,12 +145,22 @@
   left: 80px;
   &.mini {
     bottom: 0;
-    top: -5px;
+    top: -1px;
   }
 }
 
 h1.mini {
   font-size: 24px;
+}
+
+#menu-toggle {
+  display:none;
+}
+
+@media (max-width:480px){
+  #menu-toggle {
+    display: block;
+  }
 }
 
 @media (max-width:600px){
