@@ -19,7 +19,7 @@ exports = module.exports = function(req, res) {
   // Load other posts
   view.on('init', function(next) {
 
-    var q = keystone.list('Member').model.find().sort('-lastName');
+    var q = keystone.list('Member').model.find().sort('lastName');
 
     q.exec(function(err, results) {
       locals.data.members = results;
